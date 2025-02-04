@@ -1,11 +1,10 @@
-let token = null; // Store the JWT token after login
-
 async function registerUser(event) {
     event.preventDefault(); // Stop page refresh
 
     const formData = new FormData(document.getElementById('registration-form'));
     const email = formData.get('email');
     const password = formData.get('password');
+    const confirmPassword = formData.get('password-confirmation');
     
     if (password !== confirmPassword) {
         alert("Passwords do not match!");
@@ -49,6 +48,7 @@ async function loginUser(event) {
         if (response.ok) {
             alert("Login successful!");
             token = (await response.json()).accessToken;
+            localStorage.setItem("token", token);
             console.log("Token:", token);
         } else {
             alert(`Login failed, bad response: ${response.status}`);
@@ -60,6 +60,7 @@ async function loginUser(event) {
 
 // Get all students (requires authentication)
 async function getStudents() {
+    const token = localStorage.getItem("token");
     if (!token) {
         alert("Please login first.");
         return;
