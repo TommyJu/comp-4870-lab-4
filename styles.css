@@ -1,0 +1,65 @@
+html {
+    min-height: 100%;
+}
+
+.container-v, body {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    padding: 20px;
+}
+
+.container-h {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+input, button {
+    margin: 5px 0;
+}
+
+form {
+    border: 1px solid black;
+    padding: 20px;
+}
+
+/* Basic table styling */
+.students-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-family: Arial, sans-serif;
+    border: 1px solid #ccc;
+}
+
+/* Header styling */
+.students-table th {
+    background-color: #f4f4f4;
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ccc;
+}
+
+/* Data cell styling */
+.students-table td {
+    padding: 8px;
+    border: 1px solid #ccc;
+}
+
+/* Optional: Zebra-striping for rows */
+.students-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Optional: Hover effect for rows */
+.students-table tr:hover {
+    background-color: #e0e0e0;
+}
+
+/* Message when no students are found */
+#students-list p {
+    font-size: 16px;
+    color: #555;
+}
